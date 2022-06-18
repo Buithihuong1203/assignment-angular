@@ -1,0 +1,33 @@
+<!-- định nghĩa biến để quản lí form -->
+<button class="btn btn-success"><a routerLink="/admin/users">Quay lại</a></button>
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label for="">Email</label>
+        <!-- định nghĩa thuộc tính để lắng nghe input -->
+        <input type="text" class="form-control" formControlName="email">
+
+        <app-show-validate [field]="userForm.get('email')" key="Email user"></app-show-validate>
+
+    </div>
+    <div class="form-group">
+        <label for="">Password</label>
+        <input type="text" class="form-control" formControlName="password">
+
+        <app-show-validate [field]="userForm.get('password')" key="Password user"></app-show-validate>
+
+    </div>
+
+    <div class="form-group">
+        <label for="">ROLE</label><br>
+        <select class="form-control" formControlName="role" class="w-96">
+    <option>0</option>
+    <option>1</option>
+   </select>
+        <!-- <input type="number" class="form-control" formControlName="role"> -->
+
+        <app-show-validate [field]="userForm.get('role')" key="phân quyền"></app-show-validate>
+
+    </div>
+
+    <div><button class="btn btn-success" [disabled]="!userForm.valid">Submit</button></div>
+</form>

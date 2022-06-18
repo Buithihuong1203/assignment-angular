@@ -1,0 +1,20 @@
+<div class="row">
+    <div class="col-lg-3 col-md-6 mb-4 " *ngFor="let product of products">
+        <div class="cat-item position-relative overflow-hidden rounded mb-2">
+            <div class="team-img position-relative">
+                <img class="img-fluid" src="{{product.img_url}}" alt="">
+                <div class="team-social">
+                    <a class="btn btn-outline-light btn-square mx-1" href="#"><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-outline-light btn-square mx-1" href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-outline-light btn-square mx-1" href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="bg-secondary p-4">
+                <h5>{{product.name}}</h5>
+                <a routerLink="/products/{{product._id}}">
+                    <button class="btn btn-warning">Chi tiết</button>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

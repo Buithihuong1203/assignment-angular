@@ -1,0 +1,21 @@
+<div>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th></th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of users">
+                <td>{{user._id}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.role}}</td>
+                <td><button class="btn btn-danger" (click)="onDelete(user._id)">Delete</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

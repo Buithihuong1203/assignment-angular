@@ -1,0 +1,56 @@
+<!-- định nghĩa biến để quản lí form -->
+<button class="btn btn-primary"><a routerLink="/admin/products">Quay lại</a></button>
+<form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label for="">Name</label>
+        <!-- định nghĩa thuộc tính để lắng nghe input -->
+        <input type="text" class="form-control" formControlName="name">
+
+        <app-show-validate [field]="productForm.get('name')" key="Tên sản phẩm"></app-show-validate>
+
+    </div>
+    <div class="form-group">
+        <label for="">Price</label>
+        <input type="number" class="form-control" formControlName="price">
+
+        <app-show-validate [field]="productForm.get('price')" key="Giá sản phẩm"></app-show-validate>
+
+    </div>
+    <div class="form-group">
+        <label for="">Sale_price</label>
+        <input type="number" class="form-control" formControlName="sale_price">
+
+        <app-show-validate [field]="productForm.get('sale_price')" key="Sale sản phẩm"></app-show-validate>
+
+    </div>
+    <div class="form-group">
+        <label for="">Description</label>
+        <input type="text" class="form-control" formControlName="description">
+
+        <app-show-validate [field]="productForm.get('description')" key="Mô tả sản phẩm"></app-show-validate>
+
+    </div>
+    <div class="form-group">
+        <label for="">Image</label>
+        <input type="text" class="form-control" formControlName="img_url">
+
+        <app-show-validate [field]="productForm.get('img_url')" key="Ảnh sản phẩm"></app-show-validate>
+
+    </div>
+    <div class="form-group">
+        <label for="">Status</label>
+        <input type="number" class="form-control" formControlName="status">
+
+        <app-show-validate [field]="productForm.get('status')" key="Trạng thái sản phẩm"></app-show-validate>
+
+    </div>
+
+    <!-- <div class="form-group">
+   <label for="">CATEGORY</label>
+   <input type="number" class="form-control" formControlName="category">
+
+   <app-show-validate [field]="productForm.get('category')" key="Danh mục sản phẩm"></app-show-validate>
+
+</div> -->
+    <div><button class="btn btn-success" [disabled]="!productForm.valid">Submit</button></div>
+</form>
