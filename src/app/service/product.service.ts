@@ -29,7 +29,10 @@ export class ProductService {
   updateProduct(_id: string , data: ProductCreate): Observable<Product>{
     return this.http.patch<Product>(`${environment.products}/${_id}`, data)
   }
+
   getProductByCate(_id: string): Observable<Product> {
     return this.http.get<Product>(`${environment.categories}/${_id}`)
   }
 }
+//Observable: là kiểu dữ liệu lắng nghe api và trả về kq
+

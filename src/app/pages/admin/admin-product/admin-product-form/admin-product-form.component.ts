@@ -12,10 +12,10 @@ import { ProductService } from 'src/app/service/product.service';
 export class AdminProductFormComponent implements OnInit {
 productForm: FormGroup;
 productId : string
-  constructor(private productService: ProductService,
-    private router: Router,
-    private activateRoute : ActivatedRoute,
-    private toastr : ToastrService) {
+  constructor(private productService: ProductService,  //call api
+    private router: Router, // điều hướng
+    private activateRoute : ActivatedRoute,//lấy tham số trên url
+    private toastr : ToastrService) {  //thông báo
       this.productForm = new FormGroup({
         name: new FormControl('', [
           Validators.required,
@@ -43,9 +43,9 @@ productId : string
       this.productId =''
     }
 
-  ngOnInit(): void {
+  ngOnInit(): void { //khởi tạo
     this.productId = this.activateRoute.snapshot.params['id'];
-    if(this.productId) {
+    if(this.productId) { //cập nhât data cho form
       this.productService.getProduct(this.productId).subscribe(data => {
         this.productForm.patchValue({
           name: data.name,
@@ -59,18 +59,11 @@ productId : string
     }
 
   }
-  // onValidateNameHasProduct(control : AbstractControl) : ValidationErrors | null{
-  //   const inputValue = control.value
-  //   if(!inputValue.includes('book')){
-  //     return {hasProductError: true}
-  //   }
-  //   return null
-  // }
   redirectToList() {
     this.router.navigateByUrl('/admin/products');
   }
 onSubmit() {
-  const data = this.productForm.value
+  const data = this.productForm.value  //nhận được data từ form value
   if(this.productId !== '' && this.productId !== undefined) {
     return this.productService.updateProduct(this.productId, data).subscribe(data => {
       if(data) {

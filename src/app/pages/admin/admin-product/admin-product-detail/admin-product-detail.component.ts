@@ -13,7 +13,7 @@ product : Product;
   constructor(private productService : ProductService,
     private activateRoute : ActivatedRoute
     ) {
-    this.product = {
+    this.product = { //giá trị mặc định
       _id: '',
       name: '',
       status: 0,
@@ -33,3 +33,5 @@ product : Product;
   }
 
 }
+
+//lấy id qua thằng params

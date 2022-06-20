@@ -10,8 +10,8 @@ import { CategoryService } from 'src/app/service/category.service';
   styleUrls: ['./admin-category-form.component.css']
 })
 export class AdminCategoryFormComponent implements OnInit {
-categoryForm : FormGroup;
-categoryId: string
+categoryForm : FormGroup; //khai báo categoryForm lấy dữ liệu từ FormGroup bên HTML
+categoryId: string    //biến categoryId kiểu dl là string
   constructor(private categoryService: CategoryService,
               private router: Router,
               private activateRoute: ActivatedRoute,

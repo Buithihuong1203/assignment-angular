@@ -10,7 +10,7 @@ export class CanAccessAdminGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    const currentUser = localStorage.getItem('loggedUser');
+    const currentUser = localStorage.getItem('loggedInUser');
       if(currentUser){
       return true;
     }
@@ -19,3 +19,7 @@ export class CanAccessAdminGuard implements CanActivate {
   }
 
 }
+
+//check bảo vệ
+
+//currentUser : check xem đã login chưa trước khi vào admin
